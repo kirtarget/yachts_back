@@ -39,6 +39,7 @@ app.use(express.json())
 app.use(cors())
 // Роуты
 
+app.get("/", getYachts)
 app.get("/api/yachts", getYachts)
 app.get("/api/country", getCountries)
 app.get("/api/region", getRegions)
