@@ -13,7 +13,7 @@ import {
 
 ///////////////////////////////////////
 // Set Up
-const port = 3000
+const port = process.env.PORT || 3000
 const __dirname = path.resolve()
 // Подключение к БД
 mongoose
