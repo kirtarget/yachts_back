@@ -1,6 +1,7 @@
 import $iPS4O$express from "express";
 import $iPS4O$mongoose from "mongoose";
 import $iPS4O$path from "path";
+import $iPS4O$cors from "cors";
 import $iPS4O$axios from "axios";
 
 
@@ -166,6 +167,7 @@ const $2faef3b8a72d0baa$export$b079286a3c21acde = function() {
 
 
 
+
 const $a08d95e3e0f325f1$export$faf1348ccfe21018 = async (req, res)=>{
     try {
         const yachts = await (0, $982f52f9e8bada10$export$2e2bcd8739ae039).find();
@@ -227,7 +229,7 @@ const $a08d95e3e0f325f1$export$7689702b54a32ac7 = async (req, res)=>{
 
 ///////////////////////////////////////
 // Set Up
-const $c741cbfe1353d8c3$var$port = 3100;
+const $c741cbfe1353d8c3$var$port = 3000;
 const $c741cbfe1353d8c3$var$__dirname = (0, $iPS4O$path).resolve();
 // Подключение к БД
 (0, $iPS4O$mongoose).connect("mongodb+srv://admin:admin@cluster0.5zy4l.mongodb.net/yacht?retryWrites=true&w=majority").then(()=>console.log("DB ok!")).then(()=>{
@@ -242,18 +244,13 @@ setInterval((0, $2faef3b8a72d0baa$export$b079286a3c21acde), 36000000);
 // Подключение Express
 const $c741cbfe1353d8c3$var$app = (0, $iPS4O$express)();
 $c741cbfe1353d8c3$var$app.use((0, $iPS4O$express).json());
-$c741cbfe1353d8c3$var$app.use((0, $iPS4O$express).static("/build/"));
+$c741cbfe1353d8c3$var$app.use((0, $iPS4O$cors)());
 // Роуты
 $c741cbfe1353d8c3$var$app.get("/api/yachts", (0, $a08d95e3e0f325f1$export$faf1348ccfe21018));
 $c741cbfe1353d8c3$var$app.get("/api/country", (0, $a08d95e3e0f325f1$export$44f7508c6c352cc6));
 $c741cbfe1353d8c3$var$app.get("/api/region", (0, $a08d95e3e0f325f1$export$14682eeac6801e56));
 $c741cbfe1353d8c3$var$app.get("/api/locations", (0, $a08d95e3e0f325f1$export$c07c686062478869));
-$c741cbfe1353d8c3$var$app.get("/api/locations/:id", (0, $a08d95e3e0f325f1$export$7689702b54a32ac7));
-$c741cbfe1353d8c3$var$app.get("*", function(req, res) {
-    res.sendFile((0, $iPS4O$path).join($c741cbfe1353d8c3$var$__dirname, "../../yachts/build/index.html"), function(err) {
-        if (err) res.status(500).send(err);
-    });
-}) // Запуск сервака
+$c741cbfe1353d8c3$var$app.get("/api/locations/:id", (0, $a08d95e3e0f325f1$export$7689702b54a32ac7)) // Запуск сервака
  ////////////////////////////////////
 ;
 

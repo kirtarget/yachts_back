@@ -13,7 +13,7 @@ import {
 
 ///////////////////////////////////////
 // Set Up
-const port = 3100
+const port = 3000
 const __dirname = path.resolve()
 // Подключение к БД
 mongoose
@@ -44,17 +44,6 @@ app.get("/api/country", getCountries)
 app.get("/api/region", getRegions)
 app.get("/api/locations", getLocations)
 app.get("/api/locations/:id", getLocationsById)
-app.get("*", function (req, res) {
-  res.sendFile(
-    // path.join(__dirname, "../../yachts
-    "/frontend/build/index.html"
-  ),
-    function (err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    }
-})
 
 // Запуск сервака
 
