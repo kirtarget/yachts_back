@@ -19,7 +19,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "dev": "nodemon ./src/server.js",
+    "dev": "node ./src/server.js",
     "client": "npm run start --prefix src",
     "start_dev": "node.index.js",
     "build": "npx parcel build ./src/server.js --no-cache"
