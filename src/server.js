@@ -9,6 +9,7 @@ import {
   getCountries,
   getRegions,
   getLocationsById,
+  getSingleYacht,
 } from "./routes.js"
 
 ///////////////////////////////////////
@@ -41,6 +42,7 @@ app.use(cors())
 
 app.get("/", getYachts)
 app.get("/api/yachts", getYachts)
+app.get("/api/yachts/:id", getSingleYacht)
 app.get("/api/country", getCountries)
 app.get("/api/region", getRegions)
 app.get("/api/locations", getLocations)

@@ -14,6 +14,18 @@ export const getYachts = async (req, res) => {
     })
   }
 }
+export const getSingleYacht = async (req, res) => {
+  try {
+    const yacht = await yachtSchema.findOne({ id: req.params.id })
+
+    res.send(yacht)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({
+      message: "Не удалось загрузить список",
+    })
+  }
+}
 
 export const getCountries = async (req, res) => {
   try {
